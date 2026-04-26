@@ -41,18 +41,29 @@ a:hover{color:#b0b0ff}
 .cat-tag:hover,.cat-tag.active{border-color:#8b8bff;color:#fff;background:rgba(139,139,255,.1)}
 .cat-tag.active{background:linear-gradient(135deg,rgba(139,139,255,.2),rgba(107,75,255,.2))}
 
-/* Ad Banner */
+/* Ad System */
 .ad-banner{max-width:1200px;margin:0 auto 32px;padding:0 24px}
 .ad-slot{background:linear-gradient(135deg,#1a1a2e,#0d0d16);border:1px dashed #2a2a3a;border-radius:16px;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden}
-.ad-slot::before{content:"广告";position:absolute;top:8px;right:8px;font-size:11px;color:#555;background:#0a0a0f;padding:2px 8px;border-radius:4px}
-.ad-content{display:flex;align-items:center;gap:16px}
-.ad-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px}
+.ad-slot::before{content:attr(data-label);position:absolute;top:8px;right:8px;font-size:11px;color:#555;background:#0a0a0f;padding:2px 8px;border-radius:4px;z-index:1}
+.ad-content{display:flex;align-items:center;gap:16px;flex:1}
+.ad-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
 .ad-text h3{font-size:16px;margin-bottom:4px;color:#fff}
 .ad-text p{font-size:13px;color:#888}
-.ad-btn{padding:10px 24px;border:none;border-radius:8px;background:linear-gradient(135deg,#ff6b9d,#ffb86c);color:#fff;font-size:14px;cursor:pointer;font-weight:600;transition:opacity .2s}
+.ad-btn{padding:10px 24px;border:none;border-radius:8px;background:linear-gradient(135deg,#ff6b9d,#ffb86c);color:#fff;font-size:14px;cursor:pointer;font-weight:600;transition:opacity .2s;text-decoration:none;display:inline-block;white-space:nowrap;flex-shrink:0}
 .ad-btn:hover{opacity:.9}
 .ad-close{position:absolute;top:8px;right:40px;color:#555;cursor:pointer;font-size:14px;z-index:2}
 .ad-close:hover{color:#888}
+
+/* Ad Grid (catalog style) */
+.ad-grid{max-width:1200px;margin:0 auto 32px;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ad-card{background:linear-gradient(135deg,#1a1a2e,#0d0d16);border:1px dashed #2a2a3a;border-radius:12px;padding:20px 16px;text-align:center;position:relative;cursor:pointer;transition:all .2s}
+.ad-card:hover{border-color:#8b8bff;transform:translateY(-2px)}
+.ad-card::before{content:attr(data-label);position:absolute;top:6px;right:6px;font-size:10px;color:#555;background:#0a0a0f;padding:1px 6px;border-radius:3px}
+.ad-card .ad-icon{margin:0 auto 10px}
+.ad-card .ad-text h3{font-size:13px}
+.ad-card .ad-text p{font-size:11px}
+@media(max-width:900px){.ad-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.ad-grid{grid-template-columns:1fr}}
 
 /* Tool Grid */
 .tools-section{max-width:1200px;margin:0 auto;padding:0 24px 80px}
@@ -94,7 +105,7 @@ a:hover{color:#b0b0ff}
 .tool-card:nth-child(5){animation-delay:.2s}
 .tool-card:nth-child(6){animation-delay:.25s}
 
-/* Color variants for tool icons */
+/* Color variants */
 .icon-purple{background:rgba(139,139,255,.15)}
 .icon-pink{background:rgba(255,107,157,.15)}
 .icon-green{background:rgba(78,205,196,.15)}
@@ -103,6 +114,12 @@ a:hover{color:#b0b0ff}
 .icon-red{background:rgba(255,99,132,.15)}
 .icon-yellow{background:rgba(255,217,61,.15)}
 .icon-cyan{background:rgba(0,231,255,.15)}
+
+/* Ad Shop */
+.ad-shop{max-width:1200px;margin:0 auto 32px;padding:0 24px}
+.ad-shop-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.ad-shop-header h2{font-size:18px;color:#888;font-weight:500}
+.ad-shop-header a{font-size:13px;color:#8b8bff}
 </style>
 </head>
 <body>
@@ -115,7 +132,7 @@ a:hover{color:#b0b0ff}
 <a href="#">首页</a>
 <a href="#">分类</a>
 <a href="#">新工具</a>
-<a href="#">提交工具</a>
+<a href="mailto:admin@ainav.com">投放广告</a>
 </div>
 </div>
 </div>
@@ -148,17 +165,45 @@ a:hover{color:#b0b0ff}
 </div>
 </div>
 
-<!-- Ad Banner 1 -->
+<!-- ====== AD SHOP (位置展示 & 购买入口) ====== -->
+<div class="ad-shop">
+<div class="ad-shop-header">
+<h2>📋 广告位一览 · 8个位置可售</h2>
+<a href="mailto:admin@ainav.com">我要投放 →</a>
+</div>
+</div>
+
+<!-- Ad Grid: Catalog of ALL available ad slots -->
+<div class="ad-grid">
+<div class="ad-card" data-label="S级">
+<div class="ad-icon icon-purple" style="width:40px;height:40px;font-size:20px">👑</div>
+<div class="ad-text"><h3>顶部横幅</h3><p>首页最醒目位置<br>299/月</p></div>
+</div>
+<div class="ad-card" data-label="A级">
+<div class="ad-icon icon-blue" style="width:40px;height:40px;font-size:20px">📌</div>
+<div class="ad-text"><h3>分类间插入</h3><p>工具卡片上方<br>199/月</p></div>
+</div>
+<div class="ad-card" data-label="A级">
+<div class="ad-icon icon-green" style="width:40px;height:40px;font-size:20px">💎</div>
+<div class="ad-text"><h3>中段推荐位</h3><p>工具列表中间<br>199/月</p></div>
+</div>
+<div class="ad-card" data-label="A级">
+<div class="ad-icon icon-orange" style="width:40px;height:40px;font-size:20px">🔥</div>
+<div class="ad-text"><h3>底部横幅</h3><p>页脚上方<br>199/月</p></div>
+</div>
+</div>
+
+<!-- ====== AD SLOT 1: Top Banner ====== -->
 <div class="ad-banner">
-<div class="ad-slot" id="ad1">
+<div class="ad-slot" data-label="S级广告位">
 <div class="ad-content">
-<div class="ad-icon icon-purple">✨</div>
+<div class="ad-icon icon-purple">👑</div>
 <div class="ad-text">
-<h3>🌟 广告位招租 — 你的AI工具在这里曝光</h3>
-<p>日均UV 5000+，精准AI用户群体 ｜ 联系：admin@ainav.com</p>
+<h3>🌟 顶部黄金广告位招租</h3>
+<p>日均UV 5000+，精准AI用户 · 首月特惠299</p>
 </div>
 </div>
-<a class="ad-btn" href="mailto:admin@ainav.com">投放广告</a>
+<a class="ad-btn" href="mailto:admin@ainav.com">立即抢购</a>
 <span class="ad-close" onclick="this.parentElement.style.display='none'">✕</span>
 </div>
 </div>
@@ -170,21 +215,55 @@ a:hover{color:#b0b0ff}
 <span id="toolCount">共 48 个工具</span>
 </div>
 <div class="tool-grid" id="toolGrid">
-<!-- Tools will be loaded from JavaScript -->
 </div>
 </div>
 
-<!-- Ad Banner 2 -->
+<!-- ====== AD SLOT 2: Mid Page Banner ====== -->
 <div class="ad-banner">
-<div class="ad-slot">
+<div class="ad-slot" data-label="A级广告位">
 <div class="ad-content">
-<div class="ad-icon icon-green">📢</div>
+<div class="ad-icon icon-blue">📌</div>
 <div class="ad-text">
-<h3>🔥 底部推荐位 — 限时特惠</h3>
-<p>首月免费投放，精准触达AI开发者与创作者</p>
+<h3>💡 中段推荐位 — 限时优惠</h3>
+<p>精准曝光，转化率高于行业均值 · 仅199/月</p>
 </div>
 </div>
 <a class="ad-btn" href="mailto:admin@ainav.com">立即投放</a>
+<span class="ad-close" onclick="this.parentElement.style.display='none'">✕</span>
+</div>
+</div>
+
+<!-- ====== AD SLOT 3: Feature Card ====== -->
+<div class="ad-grid">
+<div class="ad-card" data-label="推荐">
+<div class="ad-icon icon-green" style="width:40px;height:40px;font-size:20px">💎</div>
+<div class="ad-text"><h3>精品推荐位</h3><p>限量3席 · 159/月</p></div>
+</div>
+<div class="ad-card" data-label="推荐">
+<div class="ad-icon icon-pink" style="width:40px;height:40px;font-size:20px">🎯</div>
+<div class="ad-text"><h3>分类精选</h3><p>指定分类曝光 · 129/月</p></div>
+</div>
+<div class="ad-card" data-label="推荐">
+<div class="ad-icon icon-yellow" style="width:40px;height:40px;font-size:20px">⭐</div>
+<div class="ad-text"><h3>新工具推荐</h3><p>首发曝光位 · 99/月</p></div>
+</div>
+<div class="ad-card" data-label="特惠">
+<div class="ad-icon icon-cyan" style="width:40px;height:40px;font-size:20px">🕐</div>
+<div class="ad-text"><h3>限时闪投</h3><p>首月半价 · 59起</p></div>
+</div>
+</div>
+
+<!-- ====== AD SLOT 4: Bottom Banner ====== -->
+<div class="ad-banner">
+<div class="ad-slot" data-label="A级广告位">
+<div class="ad-content">
+<div class="ad-icon icon-orange">🔥</div>
+<div class="ad-text">
+<h3>🔥 底部推荐位 — 高性价比</h3>
+<p>首月免费投放体验，精准触达AI创作者</p>
+</div>
+</div>
+<a class="ad-btn" href="mailto:admin@ainav.com">免费投放</a>
 <span class="ad-close" onclick="this.parentElement.style.display='none'">✕</span>
 </div>
 </div>
@@ -195,13 +274,12 @@ a:hover{color:#b0b0ff}
 <p style="margin-top:8px">
 <a href="#">关于我们</a>
 <a href="#">提交工具</a>
-<a href="#">广告合作</a>
+<a href="mailto:admin@ainav.com">广告合作</a>
 <a href="#">隐私政策</a>
 </p>
 </div>
 
 <script>
-// ===================== TOOL DATA =====================
 const tools = [
   {name:'ChatGPT',cat:'写作',desc:'OpenAI旗舰对话式AI，写作、编程、头脑风暴全能',icon:'💬',color:'icon-green',price:'免费'},
   {name:'Claude',cat:'写作',desc:'Anthropic大模型，长文写作、代码生成、数据分析',icon:'🤖',color:'icon-purple',price:'免费'},
@@ -253,7 +331,6 @@ const tools = [
   {name:'V0 by Vercel',cat:'编程',desc:'AI生成React UI组件，前端快速原型',icon:'🔷',color:'icon-blue',price:'免费'},
 ];
 
-// ===================== RENDER =====================
 const grid = document.getElementById('toolGrid');
 const countEl = document.getElementById('toolCount');
 
@@ -290,8 +367,6 @@ function filterTools() {
 }
 
 let currentCat = 'all';
-
-// ===================== INIT =====================
 renderTools();
 </script>
 </body>
