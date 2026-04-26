@@ -1,0 +1,4 @@
+# https://www.robotstxt.org/
+User-agent: *
+Allow: /
+Sitemap: https://wutian849-afk.github.io/ai-tools-nav/sitemap.xml
