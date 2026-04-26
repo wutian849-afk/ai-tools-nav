@@ -1,0 +1,8 @@
+{
+  "name": "ai-tools-nav",
+  "version": "1.0.0",
+  "description": "AI工具导航网站",
+  "scripts": {
+    "dev": "echo 'Static site, no dev server needed'"
+  }
+}
