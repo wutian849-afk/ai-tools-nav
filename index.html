@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI工具导航 - 发现最好的AI工具</title>
+<title>AI Tools Navigator - Discover the Best AI Tools</title>
 <meta name="google-site-verification" content="c9lQO1fotCenvY5zVwmktrcHHmUZD07Yp7HmoIzretI" />
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -15,86 +15,93 @@ a{color:#8b8bff;text-decoration:none}
 a:hover{color:#b0b0ff}
 
 /* Header */
-.header{background:#0d0d16;border-bottom:1px solid #1a1a2e;padding:20px 0;position:sticky;top:0;z-index:100}
+.header{background:#0d0d16;border-bottom:1px solid #1a1a2e;padding:16px 0;position:sticky;top:0;z-index:100}
 .header-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:24px;font-weight:700;background:linear-gradient(135deg,#8b8bff,#ff6b9d);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.logo{font-size:22px;font-weight:700;background:linear-gradient(135deg,#8b8bff,#ff6b9d);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .logo span{-webkit-text-fill-color:#e0e0e0;background:none}
-.nav{display:flex;gap:24px;align-items:center}
-.nav a{color:#888;font-size:14px;transition:color .2s}
+.nav{display:flex;gap:20px;align-items:center}
+.nav a{color:#888;font-size:13px;transition:color .2s}
 .nav a:hover{color:#fff}
 
-/* Hero Section */
-.hero{text-align:center;padding:80px 24px 60px;max-width:800px;margin:0 auto}
-.hero h1{font-size:42px;font-weight:700;margin-bottom:16px;line-height:1.2}
+/* Lang Switch */
+.lang-switch{display:flex;gap:4px;margin-left:16px;border-left:1px solid #1a1a2e;padding-left:16px}
+.lang-btn{background:none;border:1px solid #1a1a2e;color:#666;padding:4px 10px;border-radius:6px;cursor:pointer;font-size:12px;transition:all .2s}
+.lang-btn:hover{color:#fff;border-color:#8b8bff}
+.lang-btn.active{background:#8b8bff;border-color:#8b8bff;color:#fff}
+
+/* Hero */
+.hero{text-align:center;padding:64px 24px 48px;max-width:800px;margin:0 auto}
+.hero h1{font-size:38px;font-weight:700;margin-bottom:14px;line-height:1.2}
 .hero h1 span{background:linear-gradient(135deg,#8b8bff,#ff6b9d,#ffb86c);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero p{font-size:18px;color:#888;margin-bottom:32px;line-height:1.6}
+.hero p{font-size:16px;color:#888;margin-bottom:28px;line-height:1.6}
 .search-box{display:flex;max-width:560px;margin:0 auto;gap:0}
-.search-box input{flex:1;padding:14px 20px;border:1px solid #1a1a2e;border-radius:12px 0 0 12px;background:#111120;color:#e0e0e0;font-size:16px;outline:none;transition:border .2s}
+.search-box input{flex:1;padding:12px 20px;border:1px solid #1a1a2e;border-radius:12px 0 0 12px;background:#111120;color:#e0e0e0;font-size:15px;outline:none;transition:border .2s}
 .search-box input:focus{border-color:#8b8bff}
-.search-box button{padding:14px 28px;border:none;border-radius:0 12px 12px 0;background:linear-gradient(135deg,#8b8bff,#6b4bff);color:#fff;font-size:16px;cursor:pointer;font-weight:600;transition:opacity .2s}
+.search-box button{padding:12px 24px;border:none;border-radius:0 12px 12px 0;background:linear-gradient(135deg,#8b8bff,#6b4bff);color:#fff;font-size:15px;cursor:pointer;font-weight:600;transition:opacity .2s}
 .search-box button:hover{opacity:.9}
 
-/* Category Tags */
-.categories{max-width:1200px;margin:0 auto;padding:0 24px 32px}
+/* Categories */
+.categories{max-width:1200px;margin:0 auto;padding:0 24px 28px}
 .cat-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
 .cat-scroll::-webkit-scrollbar{display:none}
-.cat-tag{padding:8px 20px;border-radius:20px;border:1px solid #1a1a2e;background:#111120;color:#888;font-size:14px;cursor:pointer;white-space:nowrap;transition:all .2s}
+.cat-tag{padding:8px 18px;border-radius:20px;border:1px solid #1a1a2e;background:#111120;color:#888;font-size:13px;cursor:pointer;white-space:nowrap;transition:all .2s}
 .cat-tag:hover,.cat-tag.active{border-color:#8b8bff;color:#fff;background:rgba(139,139,255,.1)}
 .cat-tag.active{background:linear-gradient(135deg,rgba(139,139,255,.2),rgba(107,75,255,.2))}
 
 /* Ad System */
-.ad-banner{max-width:1200px;margin:0 auto 32px;padding:0 24px}
-.ad-slot{background:linear-gradient(135deg,#1a1a2e,#0d0d16);border:1px dashed #2a2a3a;border-radius:16px;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden}
+.ad-banner{max-width:1200px;margin:0 auto 28px;padding:0 24px}
+.ad-slot{background:linear-gradient(135deg,#1a1a2e,#0d0d16);border:1px dashed #2a2a3a;border-radius:16px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden}
 .ad-slot::before{content:attr(data-label);position:absolute;top:8px;right:8px;font-size:11px;color:#555;background:#0a0a0f;padding:2px 8px;border-radius:4px;z-index:1}
-.ad-content{display:flex;align-items:center;gap:16px;flex:1}
-.ad-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
-.ad-text h3{font-size:16px;margin-bottom:4px;color:#fff}
-.ad-text p{font-size:13px;color:#888}
-.ad-btn{padding:10px 24px;border:none;border-radius:8px;background:linear-gradient(135deg,#ff6b9d,#ffb86c);color:#fff;font-size:14px;cursor:pointer;font-weight:600;transition:opacity .2s;text-decoration:none;display:inline-block;white-space:nowrap;flex-shrink:0}
+.ad-content{display:flex;align-items:center;gap:14px;flex:1}
+.ad-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.ad-text h3{font-size:15px;margin-bottom:3px;color:#fff}
+.ad-text p{font-size:12px;color:#888}
+.ad-btn{padding:9px 22px;border:none;border-radius:8px;background:linear-gradient(135deg,#ff6b9d,#ffb86c);color:#fff;font-size:13px;cursor:pointer;font-weight:600;transition:opacity .2s;text-decoration:none;display:inline-block;white-space:nowrap;flex-shrink:0}
 .ad-btn:hover{opacity:.9}
 .ad-close{position:absolute;top:8px;right:40px;color:#555;cursor:pointer;font-size:14px;z-index:2}
 .ad-close:hover{color:#888}
 
-/* Ad Grid (catalog style) */
-.ad-grid{max-width:1200px;margin:0 auto 32px;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.ad-card{background:linear-gradient(135deg,#1a1a2e,#0d0d16);border:1px dashed #2a2a3a;border-radius:12px;padding:20px 16px;text-align:center;position:relative;cursor:pointer;transition:all .2s}
+/* Ad Grid */
+.ad-grid{max-width:1200px;margin:0 auto 28px;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ad-card{background:linear-gradient(135deg,#1a1a2e,#0d0d16);border:1px dashed #2a2a3a;border-radius:12px;padding:18px 14px;text-align:center;position:relative;cursor:pointer;transition:all .2s}
 .ad-card:hover{border-color:#8b8bff;transform:translateY(-2px)}
 .ad-card::before{content:attr(data-label);position:absolute;top:6px;right:6px;font-size:10px;color:#555;background:#0a0a0f;padding:1px 6px;border-radius:3px}
-.ad-card .ad-icon{margin:0 auto 10px}
-.ad-card .ad-text h3{font-size:13px}
+.ad-card .ad-icon{margin:0 auto 8px}
+.ad-card .ad-text h3{font-size:12px}
 .ad-card .ad-text p{font-size:11px}
 @media(max-width:900px){.ad-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:500px){.ad-grid{grid-template-columns:1fr}}
 
 /* Tool Grid */
-.tools-section{max-width:1200px;margin:0 auto;padding:0 24px 80px}
-.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
-.section-header h2{font-size:22px;font-weight:600}
-.section-header span{color:#888;font-size:14px}
-.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.tool-card{background:#111120;border:1px solid #1a1a2e;border-radius:16px;padding:24px;transition:all .3s;cursor:pointer;position:relative}
-.tool-card:hover{border-color:#8b8bff;transform:translateY(-4px);box-shadow:0 8px 32px rgba(139,139,255,.1)}
-.tool-card .tag{position:absolute;top:16px;right:16px;font-size:11px;padding:3px 10px;border-radius:6px;background:rgba(139,139,255,.15);color:#8b8bff;border:1px solid rgba(139,139,255,.2)}
-.tool-card .icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
-.tool-card h3{font-size:17px;margin-bottom:8px;color:#fff}
-.tool-card p{font-size:13px;color:#888;line-height:1.5;margin-bottom:16px}
-.tool-card .meta{display:flex;justify-content:space-between;font-size:12px;color:#555;border-top:1px solid #1a1a2e;padding-top:12px}
+.tools-section{max-width:1200px;margin:0 auto;padding:0 24px 64px}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.section-header h2{font-size:20px;font-weight:600}
+.section-header span{color:#888;font-size:13px}
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.tool-card{background:#111120;border:1px solid #1a1a2e;border-radius:16px;padding:20px;transition:all .3s;cursor:pointer;position:relative}
+.tool-card:hover{border-color:#8b8bff;transform:translateY(-3px);box-shadow:0 8px 32px rgba(139,139,255,.1)}
+.tool-card .tag{position:absolute;top:14px;right:14px;font-size:10px;padding:3px 10px;border-radius:6px;background:rgba(139,139,255,.15);color:#8b8bff;border:1px solid rgba(139,139,255,.2)}
+.tool-card .icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px}
+.tool-card h3{font-size:16px;margin-bottom:6px;color:#fff}
+.tool-card p{font-size:12px;color:#888;line-height:1.5;margin-bottom:14px}
+.tool-card .meta{display:flex;justify-content:space-between;font-size:11px;color:#555;border-top:1px solid #1a1a2e;padding-top:10px}
 .tool-card .meta .price{color:#4ecdc4}
 .tool-card .meta .price.free{color:#4ecdc4}
 
 /* Footer */
-.footer{text-align:center;padding:40px 24px;border-top:1px solid #1a1a2e;color:#555;font-size:13px}
-.footer a{color:#666;margin:0 12px}
+.footer{text-align:center;padding:36px 24px;border-top:1px solid #1a1a2e;color:#555;font-size:12px}
+.footer a{color:#666;margin:0 10px}
 .footer a:hover{color:#8b8bff}
 
 /* Responsive */
 @media(max-width:768px){
-  .hero h1{font-size:28px}
-  .hero{padding:40px 24px 32px}
+  .hero h1{font-size:26px}
+  .hero{padding:32px 24px 24px}
   .tool-grid{grid-template-columns:1fr}
   .nav{display:none}
   .ad-content{flex-direction:column;align-items:flex-start}
   .ad-slot{flex-direction:column;gap:12px;align-items:flex-start}
+  .lang-switch{margin-left:0;padding-left:0;border-left:none}
 }
 
 /* Animations */
@@ -117,30 +124,29 @@ a:hover{color:#b0b0ff}
 .icon-cyan{background:rgba(0,231,255,.15)}
 
 /* Ad Shop */
-.ad-shop{max-width:1200px;margin:0 auto 32px;padding:0 24px}
-.ad-shop-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-.ad-shop-header h2{font-size:18px;color:#888;font-weight:500}
-.ad-shop-header a{font-size:13px;color:#8b8bff}
+.ad-shop{max-width:1200px;margin:0 auto 28px;padding:0 24px}
+.ad-shop-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.ad-shop-header h2{font-size:16px;color:#888;font-weight:500}
+.ad-shop-header a{font-size:12px;color:#8b8bff}
 
 /* Payment Modal */
 .modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);z-index:999;align-items:center;justify-content:center}
 .modal-overlay.active{display:flex}
-.modal{background:#111120;border:1px solid #1a1a2e;border-radius:20px;max-width:500px;width:90%;padding:32px;max-height:90vh;overflow-y:auto}
-.modal h2{font-size:22px;margin-bottom:8px;color:#fff}
-.modal .sub{color:#888;font-size:14px;margin-bottom:24px}
-.modal .price-tag{font-size:36px;font-weight:700;background:linear-gradient(135deg,#8b8bff,#ff6b9d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:24px;text-align:center}
-.modal .price-tag small{font-size:16px}
-.pay-option{background:#0d0d16;border:1px solid #1a1a2e;border-radius:12px;padding:20px;margin-bottom:12px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:16px}
+.modal{background:#111120;border:1px solid #1a1a2e;border-radius:20px;max-width:500px;width:90%;padding:28px;max-height:90vh;overflow-y:auto}
+.modal h2{font-size:20px;margin-bottom:6px;color:#fff}
+.modal .sub{color:#888;font-size:13px;margin-bottom:20px}
+.modal .price-tag{font-size:32px;font-weight:700;background:linear-gradient(135deg,#8b8bff,#ff6b9d);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px;text-align:center}
+.modal .price-tag small{font-size:14px}
+.pay-option{background:#0d0d16;border:1px solid #1a1a2e;border-radius:12px;padding:18px;margin-bottom:10px;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:14px}
 .pay-option:hover{border-color:#8b8bff;background:rgba(139,139,255,.05)}
-.pay-option .pay-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
-.pay-option .pay-info h3{font-size:16px;color:#fff;margin-bottom:2px}
-.pay-option .pay-info p{font-size:13px;color:#888;margin:0}
-.modal-close{display:block;width:100%;padding:12px;border:none;border-radius:10px;background:#1a1a2e;color:#888;font-size:14px;cursor:pointer;margin-top:16px;text-align:center}
+.pay-option .pay-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.pay-option .pay-info h3{font-size:15px;color:#fff;margin-bottom:2px}
+.pay-option .pay-info p{font-size:12px;color:#888;margin:0}
+.modal-close{display:block;width:100%;padding:10px;border:none;border-radius:10px;background:#1a1a2e;color:#888;font-size:13px;cursor:pointer;margin-top:14px;text-align:center}
 .modal-close:hover{background:#2a2a3e;color:#fff}
-.pay-note{font-size:12px;color:#555;text-align:center;margin-top:16px;line-height:1.6}
+.pay-note{font-size:11px;color:#555;text-align:center;margin-top:14px;line-height:1.6}
 
-/* Pay button */
-.pay-btn{padding:10px 24px;border:none;border-radius:8px;background:linear-gradient(135deg,#ff6b9d,#ffb86c);color:#fff;font-size:14px;cursor:pointer;font-weight:600;transition:opacity .2s;text-decoration:none;display:inline-block;white-space:nowrap;flex-shrink:0}
+.pay-btn{padding:9px 22px;border:none;border-radius:8px;background:linear-gradient(135deg,#ff6b9d,#ffb86c);color:#fff;font-size:13px;cursor:pointer;font-weight:600;transition:opacity .2s;text-decoration:none;display:inline-block;white-space:nowrap;flex-shrink:0}
 .pay-btn:hover{opacity:.9}
 </style>
 </head>
@@ -149,83 +155,87 @@ a:hover{color:#b0b0ff}
 <!-- Header -->
 <div class="header">
 <div class="header-inner">
-<div class="logo">🤖 <span>AI导航</span></div>
+<div class="logo">🤖 <span data-i18n="site_name">AI Tools Navigator</span></div>
 <div class="nav">
-<a href="#">首页</a>
-<a href="#">分类</a>
-<a href="#">新工具</a>
-<a href="mailto:admin@ainav.com">投放广告</a>
+<a href="#" data-i18n="nav_home">Home</a>
+<a href="#" data-i18n="nav_categories">Categories</a>
+<a href="#" data-i18n="nav_new">New Tools</a>
+<a href="mailto:admin@ainav.com" data-i18n="nav_ads">Advertise</a>
+<div class="lang-switch">
+<button class="lang-btn active" onclick="switchLang('en')">🇬🇧 EN</button>
+<button class="lang-btn" onclick="switchLang('zh')">🇨🇳 中文</button>
+<button class="lang-btn" onclick="switchLang('ja')">🇯🇵 日</button>
+</div>
 </div>
 </div>
 </div>
 
 <!-- Hero -->
 <div class="hero">
-<h1>发现最好用的 <span>AI工具</span></h1>
-<p>精选AI工具导航站 — 写作、绘画、视频、编程、音乐，所有AI工具一网打尽</p>
+<h1 data-i18n="hero_title" data-i18n-html>Discover the Best <span>AI Tools</span></h1>
+<p data-i18n="hero_desc">Curated AI tools directory — Writing, Design, Video, Coding, Music, all in one place.</p>
 <div class="search-box">
-<input type="text" id="searchInput" placeholder="搜索AI工具..." oninput="filterTools()">
-<button>🔍 搜索</button>
+<input type="text" id="searchInput" data-i18n-placeholder="search_placeholder" placeholder="Search AI tools..." oninput="filterTools()">
+<button data-i18n="search_btn">🔍 Search</button>
 </div>
 </div>
 
 <!-- Categories -->
 <div class="categories">
 <div class="cat-scroll" id="categoryTags">
-<div class="cat-tag active" onclick="selectCategory(this,'all')">🔥 全部</div>
-<div class="cat-tag" onclick="selectCategory(this,'写作')">✍️ 写作</div>
-<div class="cat-tag" onclick="selectCategory(this,'绘画')">🎨 绘画</div>
-<div class="cat-tag" onclick="selectCategory(this,'视频')">🎬 视频</div>
-<div class="cat-tag" onclick="selectCategory(this,'编程')">💻 编程</div>
-<div class="cat-tag" onclick="selectCategory(this,'音乐')">🎵 音乐</div>
-<div class="cat-tag" onclick="selectCategory(this,'设计')">🎯 设计</div>
-<div class="cat-tag" onclick="selectCategory(this,'办公')">📄 办公</div>
-<div class="cat-tag" onclick="selectCategory(this,'营销')">📢 营销</div>
+<div class="cat-tag active" onclick="selectCategory(this,'all')">🔥 <span data-i18n="cat_all">All</span></div>
+<div class="cat-tag" onclick="selectCategory(this,'Writing')">✍️ <span data-i18n="cat_writing">Writing</span></div>
+<div class="cat-tag" onclick="selectCategory(this,'Design')">🎨 <span data-i18n="cat_design">Design</span></div>
+<div class="cat-tag" onclick="selectCategory(this,'Video')">🎬 <span data-i18n="cat_video">Video</span></div>
+<div class="cat-tag" onclick="selectCategory(this,'Coding')">💻 <span data-i18n="cat_coding">Coding</span></div>
+<div class="cat-tag" onclick="selectCategory(this,'Music')">🎵 <span data-i18n="cat_music">Music</span></div>
+<div class="cat-tag" onclick="selectCategory(this,'Productivity')">📄 <span data-i18n="cat_productivity">Productivity</span></div>
+<div class="cat-tag" onclick="selectCategory(this,'Marketing')">📢 <span data-i18n="cat_marketing">Marketing</span></div>
 <div class="cat-tag" onclick="selectCategory(this,'3D')">🧊 3D</div>
-<div class="cat-tag" onclick="selectCategory(this,'语音')">🎙️ 语音</div>
-<div class="cat-tag" onclick="selectCategory(this,'数据分析')">📊 数据分析</div>
+<div class="cat-tag" onclick="selectCategory(this,'Voice')">🎙️ <span data-i18n="cat_voice">Voice</span></div>
+<div class="cat-tag" onclick="selectCategory(this,'Data')">📊 <span data-i18n="cat_data">Data</span></div>
 </div>
 </div>
 
-<!-- ====== AD SHOP (位置展示 & 购买入口) ====== -->
+<!-- ====== AD SHOP SECTION ====== -->
 <div class="ad-shop">
 <div class="ad-shop-header">
-<h2>📋 广告位一览 · 8个位置可售</h2>
-<a href="javascript:void(0)" onclick="showPayment('广告位一览','全部位置')">立即购买 →</a>
+<h2>📋 <span data-i18n="ad_all_title">Ad Placements · 8 Spots Available</span></h2>
+<a href="javascript:void(0)" onclick="showPayment(adPlacementEN[0],'S-Class - $9.99/mo')" data-i18n="ad_buy_now">Buy Now →</a>
 </div>
 </div>
 
-<!-- Ad Grid: Catalog of ALL available ad slots -->
+<!-- Ad Grid: Catalog of ALL Available Ad Slots -->
 <div class="ad-grid">
-<div class="ad-card" data-label="S级">
+<div class="ad-card" data-label="S-Class">
 <div class="ad-icon icon-purple" style="width:40px;height:40px;font-size:20px">👑</div>
-<div class="ad-text"><h3>顶部横幅</h3><p>首页最醒目位置<br>299/月</p></div>
+<div class="ad-text"><h3 data-i18n="ad_slot1_name">Top Banner</h3><p data-i18n="ad_slot1_desc">Most visible spot<br>$9.99/mo</p></div>
 </div>
-<div class="ad-card" data-label="A级">
+<div class="ad-card" data-label="A-Class">
 <div class="ad-icon icon-blue" style="width:40px;height:40px;font-size:20px">📌</div>
-<div class="ad-text"><h3>分类间插入</h3><p>工具卡片上方<br>199/月</p></div>
+<div class="ad-text"><h3 data-i18n="ad_slot2_name">Mid-Page Insert</h3><p data-i18n="ad_slot2_desc">Above tool cards<br>$6.99/mo</p></div>
 </div>
-<div class="ad-card" data-label="A级">
+<div class="ad-card" data-label="A-Class">
 <div class="ad-icon icon-green" style="width:40px;height:40px;font-size:20px">💎</div>
-<div class="ad-text"><h3>中段推荐位</h3><p>工具列表中间<br>199/月</p></div>
+<div class="ad-text"><h3 data-i18n="ad_slot3_name">Feature Card</h3><p data-i18n="ad_slot3_desc">Mid-tool-list spot<br>$6.99/mo</p></div>
 </div>
-<div class="ad-card" data-label="A级">
+<div class="ad-card" data-label="A-Class">
 <div class="ad-icon icon-orange" style="width:40px;height:40px;font-size:20px">🔥</div>
-<div class="ad-text"><h3>底部横幅</h3><p>页脚上方<br>199/月</p></div>
+<div class="ad-text"><h3 data-i18n="ad_slot4_name">Bottom Banner</h3><p data-i18n="ad_slot4_desc">Above footer<br>$6.99/mo</p></div>
 </div>
 </div>
 
 <!-- ====== AD SLOT 1: Top Banner ====== -->
 <div class="ad-banner">
-<div class="ad-slot" data-label="S级广告位">
+<div class="ad-slot" data-label="S-Class Ad">
 <div class="ad-content">
 <div class="ad-icon icon-purple">👑</div>
 <div class="ad-text">
-<h3>🌟 顶部黄金广告位招租</h3>
-<p>日均UV 5000+，精准AI用户 · 首月特惠299</p>
+<h3>🌟 <span data-i18n="ad_top_title">Top Banner Ad — Premium Spot</span></h3>
+<p data-i18n="ad_top_desc">5K+ daily UV, targeted AI users · First month $9.99</p>
 </div>
 </div>
-<a class="pay-btn" href="javascript:void(0)" onclick="showPayment('顶部黄金广告位','S级 - 299/月')">立即购买</a>
+<a class="pay-btn" href="javascript:void(0)" onclick="showPayment(adPlacementEN[0],'S-Class - $9.99/mo')" data-i18n="ad_buy_btn">Buy Now</a>
 <span class="ad-close" onclick="this.parentElement.style.display='none'">✕</span>
 </div>
 </div>
@@ -233,59 +243,59 @@ a:hover{color:#b0b0ff}
 <!-- Tools Grid -->
 <div class="tools-section">
 <div class="section-header">
-<h2>🛠️ 全部工具</h2>
-<span id="toolCount">共 48 个工具</span>
+<h2 data-i18n="tools_title">🛠️ All Tools</h2>
+<span id="toolCount"><span data-i18n="total_tools">Total</span> 48 <span data-i18n="tools_count">tools</span></span>
 </div>
 <div class="tool-grid" id="toolGrid">
 </div>
 </div>
 
-<!-- ====== AD SLOT 2: Mid Page Banner ====== -->
+<!-- ====== AD SLOT 2: Mid Page ====== -->
 <div class="ad-banner">
-<div class="ad-slot" data-label="A级广告位">
+<div class="ad-slot" data-label="A-Class Ad">
 <div class="ad-content">
 <div class="ad-icon icon-blue">📌</div>
 <div class="ad-text">
-<h3>💡 中段推荐位 — 限时优惠</h3>
-<p>精准曝光，转化率高于行业均值 · 仅199/月</p>
+<h3>💡 <span data-i18n="ad_mid_title">Mid-Page Ad — Limited Offer</span></h3>
+<p data-i18n="ad_mid_desc">Precise exposure, above-average conversion · Only $6.99/mo</p>
 </div>
 </div>
-<a class="pay-btn" href="javascript:void(0)" onclick="showPayment('中段推荐位','A级 - 199/月')">立即购买</a>
+<a class="pay-btn" href="javascript:void(0)" onclick="showPayment(adPlacementEN[1],'A-Class - $6.99/mo')" data-i18n="ad_buy_btn">Buy Now</a>
 <span class="ad-close" onclick="this.parentElement.style.display='none'">✕</span>
 </div>
 </div>
 
-<!-- ====== AD SLOT 3: Feature Card ====== -->
+<!-- ====== AD SLOT 3: Feature Cards ====== -->
 <div class="ad-grid">
-<div class="ad-card" data-label="推荐">
+<div class="ad-card" data-label="Featured">
 <div class="ad-icon icon-green" style="width:40px;height:40px;font-size:20px">💎</div>
-<div class="ad-text"><h3>精品推荐位</h3><p>限量3席 · 159/月</p></div>
+<div class="ad-text"><h3 data-i18n="ad_feat1_name">Premium Spotlight</h3><p data-i18n="ad_feat1_desc">3 slots only · $5.99/mo</p></div>
 </div>
-<div class="ad-card" data-label="推荐">
+<div class="ad-card" data-label="Featured">
 <div class="ad-icon icon-pink" style="width:40px;height:40px;font-size:20px">🎯</div>
-<div class="ad-text"><h3>分类精选</h3><p>指定分类曝光 · 129/月</p></div>
+<div class="ad-text"><h3 data-i18n="ad_feat2_name">Category Pick</h3><p data-i18n="ad_feat2_desc">Category-specific · $4.99/mo</p></div>
 </div>
-<div class="ad-card" data-label="推荐">
+<div class="ad-card" data-label="Featured">
 <div class="ad-icon icon-yellow" style="width:40px;height:40px;font-size:20px">⭐</div>
-<div class="ad-text"><h3>新工具推荐</h3><p>首发曝光位 · 99/月</p></div>
+<div class="ad-text"><h3 data-i18n="ad_feat3_name">New Tool Spotlight</h3><p data-i18n="ad_feat3_desc">Launch exposure · $3.99/mo</p></div>
 </div>
-<div class="ad-card" data-label="特惠">
+<div class="ad-card" data-label="Discount">
 <div class="ad-icon icon-cyan" style="width:40px;height:40px;font-size:20px">🕐</div>
-<div class="ad-text"><h3>限时闪投</h3><p>首月半价 · 59起</p></div>
+<div class="ad-text"><h3 data-i18n="ad_feat4_name">Flash Deal</h3><p data-i18n="ad_feat4_desc">1st month half price · $2.99</p></div>
 </div>
 </div>
 
 <!-- ====== AD SLOT 4: Bottom Banner ====== -->
 <div class="ad-banner">
-<div class="ad-slot" data-label="A级广告位">
+<div class="ad-slot" data-label="A-Class Ad">
 <div class="ad-content">
 <div class="ad-icon icon-orange">🔥</div>
 <div class="ad-text">
-<h3>🔥 底部推荐位 — 高性价比</h3>
-<p>首月免费投放体验，精准触达AI创作者</p>
+<h3>🔥 <span data-i18n="ad_bottom_title">Bottom Banner — Best Value</span></h3>
+<p data-i18n="ad_bottom_desc">1st month free trial · Reach AI creators</p>
 </div>
 </div>
-<a class="pay-btn" href="javascript:void(0)" onclick="showPayment('底部推荐位','A级 - 199/月')">立即购买</a>
+<a class="pay-btn" href="javascript:void(0)" onclick="showPayment(adPlacementEN[3],'A-Class - $6.99/mo')" data-i18n="ad_buy_btn">Buy Now</a>
 <span class="ad-close" onclick="this.parentElement.style.display='none'">✕</span>
 </div>
 </div>
@@ -293,183 +303,311 @@ a:hover{color:#b0b0ff}
 <!-- ====== PAYMENT MODAL ====== -->
 <div class="modal-overlay" id="paymentModal">
 <div class="modal">
-<h2 id="modalTitle">选择支付方式</h2>
-<p class="sub" id="modalDesc">请选择您偏好的支付方式完成付款</p>
-<div class="price-tag" id="modalPrice">299 <small>CNY</small></div>
+<h2 id="modalTitle" data-i18n="pay_title">Choose Payment Method</h2>
+<p class="sub" id="modalDesc" data-i18n="pay_desc">Select your preferred payment method</p>
+<div class="price-tag" id="modalPrice">$9.99</div>
 
 <div class="pay-option" onclick="payPaypal()">
 <div class="pay-icon icon-blue" style="background:rgba(0,48,135,.15)">💳</div>
 <div class="pay-info">
-<h3>PayPal 支付</h3>
-<p>点击复制邮箱 → 打开PayPal打款</p>
+<h3>PayPal</h3>
+<p data-i18n="pay_paypal_desc">Copy email → Open PayPal to send payment</p>
 </div>
 </div>
 
 <div class="pay-option" onclick="payUSDT()">
 <div class="pay-icon icon-green" style="background:rgba(78,205,196,.15)">₮</div>
 <div class="pay-info">
-<h3>USDT 加密货币</h3>
-<p>TRC20链 · 即时到账 · 免手续费</p>
+<h3>USDT Crypto</h3>
+<p data-i18n="pay_usdt_desc">TRC20 · Instant · No fees</p>
 </div>
 </div>
 
-<div class="pay-note" id="payAddress" style="display:none;background:#0d0d16;border-radius:8px;padding:16px;text-align:left">
-<p style="color:#888;font-size:12px;margin-bottom:8px">💡 USDT (TRC20) 收款地址，复制后转账：</p>
-<p style="color:#4ecdc4;font-size:13px;word-break:break-all;font-family:monospace" id="usdtAddress">请设置你的USDT收款地址</p>
-<p style="color:#555;font-size:11px;margin-top:8px">转账后请将截图发送至 admin@ainav.com 确认</p>
+<div class="pay-note" id="payAddress" style="display:none;background:#0d0d16;border-radius:8px;padding:14px;text-align:left">
+<p style="color:#888;font-size:11px;margin-bottom:6px" data-i18n="pay_usdt_label">💡 USDT (TRC20) Address — Copy and transfer:</p>
+<p style="color:#4ecdc4;font-size:12px;word-break:break-all;font-family:monospace" id="usdtAddress">TP8ytAc7SPTf6xvKPs64wgFchB1uXPfHrD</p>
+<p style="color:#555;font-size:10px;margin-top:6px" data-i18n="pay_usdt_note">Send screenshot to admin@ainav.com for confirmation</p>
 </div>
 
-<div class="pay-note" id="paypalNote" style="display:none;background:#0d0d16;border-radius:8px;padding:16px">
-<p style="color:#888;font-size:12px">✅ PayPal邮箱已复制！打开 <a href="https://paypal.com" target="_blank" style="color:#8b8bff">paypal.com</a> → 点击"发送" → 粘贴邮箱打款</p>
-<p style="color:#555;font-size:11px;margin-top:4px">收款邮箱：<span id="paypalEmail" style="color:#8b8bff;font-weight:600">jingm1658@gmail.com</span>（点击即复制）</p>
+<div class="pay-note" id="paypalNote" style="display:none;background:#0d0d16;border-radius:8px;padding:14px">
+<p style="color:#888;font-size:11px" data-i18n="pay_paypal_note">✅ PayPal email copied! Open <a href="https://paypal.com" target="_blank" style="color:#8b8bff">paypal.com</a> → Click "Send" → Paste email</p>
+<p style="color:#555;font-size:10px;margin-top:4px" data-i18n="pay_paypal_email_label">Email: <span id="paypalEmail" style="color:#8b8bff;font-weight:600">jingm1658@gmail.com</span></p>
 </div>
 
-<button class="modal-close" onclick="closeModal()">取消</button>
+<button class="modal-close" onclick="closeModal()" data-i18n="pay_cancel">Cancel</button>
 </div>
 </div>
 
 <!-- Footer -->
 <div class="footer">
-<p>© 2026 AI导航 — 发现最好的AI工具</p>
+<p>© 2026 <span data-i18n="site_name">AI Tools Navigator</span> — <span data-i18n="footer_tagline">Discover the Best AI Tools</span></p>
 <p style="margin-top:8px">
-<a href="#">关于我们</a>
-<a href="#">提交工具</a>
-<a href="mailto:admin@ainav.com">广告合作</a>
-<a href="#">隐私政策</a>
+<a href="#" data-i18n="footer_about">About</a>
+<a href="#" data-i18n="footer_submit">Submit Tool</a>
+<a href="mailto:admin@ainav.com" data-i18n="footer_ads">Advertise</a>
+<a href="#" data-i18n="footer_privacy">Privacy Policy</a>
 </p>
 </div>
 
 <script>
-const toolLinks = {
-  'ChatGPT':'https://chat.openai.com',
-  'Claude':'https://claude.ai',
-  'Gemini':'https://gemini.google.com',
-  'DeepSeek':'https://chat.deepseek.com',
-  'Notion AI':'https://notion.so',
-  'Gamma':'https://gamma.app',
-  'Midjourney':'https://midjourney.com',
-  'Stable Diffusion':'https://stability.ai',
-  'DALL·E 3':'https://openai.com/dall-e-3',
-  'Leonardo AI':'https://leonardo.ai',
-  'ComfyUI':'https://comfyui.com',
-  'Ideogram':'https://ideogram.ai',
-  'Magnific AI':'https://magnific.ai',
-  '可灵 Kling':'https://kling.kuaishou.com',
-  'Sora':'https://sora.com',
-  'Runway Gen-3':'https://runwayml.com',
-  'Pika':'https://pika.art',
-  '剪映':'https://jyy.capcut.cn',
-  'Descript':'https://descript.com',
-  'HeyGen':'https://heygen.com',
-  'Cursor':'https://cursor.com',
-  'GitHub Copilot':'https://github.com/features/copilot',
-  'Windsurf':'https://windsurf.com',
-  'Claude Code':'https://claude.ai/code',
-  'Replit':'https://replit.com',
-  'Bolt':'https://bolt.new',
-  'V0':'https://v0.dev',
-  'Suno':'https://suno.com',
-  'Udio':'https://udio.com',
-  'AIVA':'https://aiva.ai',
-  'Figma AI':'https://figma.com',
-  'Canva AI':'https://canva.com',
-  'Relay':'https://relay.app',
-  'Krea AI':'https://krea.ai',
-  'Phot.ai':'https://phot.ai',
-  'Luma AI':'https://lumalabs.ai',
-  'Meshy':'https://meshy.ai',
-  'ElevenLabs':'https://elevenlabs.io',
-  'Whisper':'https://openai.com/whisper',
-  'Fish Audio':'https://fish.audio',
-  'NotebookLM':'https://notebooklm.google',
-  'Otter.ai':'https://otter.ai',
-  'Motion':'https://motion.dev',
-  'Tome':'https://tome.app',
-  'Perplexity':'https://perplexity.ai',
-  'Jasper':'https://jasper.ai',
-  'Typeface':'https://typeface.ai',
-  'Grammarly':'https://grammarly.com',
+// ===================== I18n SYSTEM =====================
+const i18n = {
+  en: {
+    site_name:'AI Tools Navigator', nav_home:'Home', nav_categories:'Categories', nav_new:'New Tools', nav_ads:'Advertise',
+    hero_title:'Discover the Best <span>AI Tools</span>',
+    hero_desc:'Curated AI tools directory — Writing, Design, Video, Coding, Music, all in one place.',
+    search_placeholder:'Search AI tools...', search_btn:'🔍 Search',
+    cat_all:'All', cat_writing:'Writing', cat_design:'Design', cat_video:'Video', cat_coding:'Coding',
+    cat_music:'Music', cat_productivity:'Productivity', cat_marketing:'Marketing', cat_voice:'Voice', cat_data:'Data',
+    ad_all_title:'Ad Placements · 8 Spots Available', ad_buy_now:'Buy Now →',
+    ad_slot1_name:'Top Banner', ad_slot1_desc:'Most visible spot<br>$9.99/mo',
+    ad_slot2_name:'Mid-Page Insert', ad_slot2_desc:'Above tool cards<br>$6.99/mo',
+    ad_slot3_name:'Feature Card', ad_slot3_desc:'Mid-tool-list spot<br>$6.99/mo',
+    ad_slot4_name:'Bottom Banner', ad_slot4_desc:'Above footer<br>$6.99/mo',
+    ad_top_title:'Top Banner Ad — Premium Spot', ad_top_desc:'5K+ daily UV, targeted AI users · First month $9.99',
+    ad_mid_title:'Mid-Page Ad — Limited Offer', ad_mid_desc:'Precise exposure, above-average conversion · Only $6.99/mo',
+    ad_feat1_name:'Premium Spotlight', ad_feat1_desc:'3 slots only · $5.99/mo',
+    ad_feat2_name:'Category Pick', ad_feat2_desc:'Category-specific · $4.99/mo',
+    ad_feat3_name:'New Tool Spotlight', ad_feat3_desc:'Launch exposure · $3.99/mo',
+    ad_feat4_name:'Flash Deal', ad_feat4_desc:'1st month half price · $2.99',
+    ad_bottom_title:'Bottom Banner — Best Value', ad_bottom_desc:'1st month free trial · Reach AI creators',
+    ad_buy_btn:'Buy Now',
+    tools_title:'🛠️ All Tools', total_tools:'Total', tools_count:'tools',
+    pay_title:'Choose Payment Method', pay_desc:'Select your preferred payment method',
+    pay_paypal_desc:'Copy email → Open PayPal to send payment',
+    pay_usdt_desc:'TRC20 · Instant · No fees',
+    pay_usdt_label:'💡 USDT (TRC20) Address — Copy and transfer:',
+    pay_usdt_note:'Send screenshot to admin@ainav.com for confirmation',
+    pay_paypal_note:'✅ PayPal email copied! Open <a href="https://paypal.com" target="_blank">paypal.com</a> → Click "Send" → Paste email',
+    pay_paypal_email_label:'Email: <span id="paypalEmail" style="color:#8b8bff;font-weight:600">jingm1658@gmail.com</span>',
+    pay_cancel:'Cancel',
+    footer_tagline:'Discover the Best AI Tools', footer_about:'About', footer_submit:'Submit Tool', footer_ads:'Advertise', footer_privacy:'Privacy Policy',
+    price_free:'🆓 Free', price_paid:'💳 Paid',
+    ad_placement:'Ad Placement', ad_inquiry:'For pricing and availability, contact us at admin@ainav.com'
+  },
+  zh: {
+    site_name:'AI工具导航', nav_home:'首页', nav_categories:'分类', nav_new:'新工具', nav_ads:'投放广告',
+    hero_title:'发现最好用的 <span>AI工具</span>',
+    hero_desc:'精选AI工具导航站 — 写作、设计、视频、编程、音乐，所有AI工具一网打尽',
+    search_placeholder:'搜索AI工具...', search_btn:'🔍 搜索',
+    cat_all:'全部', cat_writing:'写作', cat_design:'设计', cat_video:'视频', cat_coding:'编程',
+    cat_music:'音乐', cat_productivity:'办公', cat_marketing:'营销', cat_voice:'语音', cat_data:'数据分析',
+    ad_all_title:'广告位一览 · 8个位置可售', ad_buy_now:'立即购买 →',
+    ad_slot1_name:'顶部横幅', ad_slot1_desc:'首页最醒目位置<br>$9.99/月',
+    ad_slot2_name:'中段插入', ad_slot2_desc:'工具卡片上方<br>$6.99/月',
+    ad_slot3_name:'精品推荐位', ad_slot3_desc:'工具列表中间<br>$6.99/月',
+    ad_slot4_name:'底部横幅', ad_slot4_desc:'页脚上方<br>$6.99/月',
+    ad_top_title:'顶部广告位 — 黄金位置', ad_top_desc:'日均UV 5000+，精准AI用户 · 首月$9.99',
+    ad_mid_title:'中段广告位 — 限时优惠', ad_mid_desc:'精准曝光，转化率高 · 仅$6.99/月',
+    ad_feat1_name:'精品推荐位', ad_feat1_desc:'限量3席 · $5.99/月',
+    ad_feat2_name:'分类精选', ad_feat2_desc:'指定分类曝光 · $4.99/月',
+    ad_feat3_name:'新工具推荐', ad_feat3_desc:'首发曝光位 · $3.99/月',
+    ad_feat4_name:'限时闪投', ad_feat4_desc:'首月半价 · $2.99',
+    ad_bottom_title:'底部广告位 — 高性价比', ad_bottom_desc:'首月免费投放体验',
+    ad_buy_btn:'立即购买',
+    tools_title:'🛠️ 全部工具', total_tools:'共', tools_count:'个工具',
+    pay_title:'选择支付方式', pay_desc:'请选择支付方式完成付款',
+    pay_paypal_desc:'复制邮箱 → 打开PayPal打款',
+    pay_usdt_desc:'TRC20链 · 即时到账 · 免手续费',
+    pay_usdt_label:'💡 USDT (TRC20) 收款地址，复制后转账：',
+    pay_usdt_note:'转账后请将截图发送至 admin@ainav.com 确认',
+    pay_paypal_note:'✅ PayPal邮箱已复制！打开 <a href="https://paypal.com" target="_blank">paypal.com</a> → 点击"发送" → 粘贴邮箱打款',
+    pay_paypal_email_label:'收款邮箱：<span id="paypalEmail" style="color:#8b8bff;font-weight:600">jingm1658@gmail.com</span>',
+    pay_cancel:'取消',
+    footer_tagline:'发现最好的AI工具', footer_about:'关于我们', footer_submit:'提交工具', footer_ads:'广告合作', footer_privacy:'隐私政策',
+    price_free:'🆓 免费', price_paid:'💳 付费',
+    ad_placement:'广告位', ad_inquiry:'如需购买广告位，请联系 admin@ainav.com'
+  },
+  ja: {
+    site_name:'AIツールナビ', nav_home:'ホーム', nav_categories:'カテゴリ', nav_new:'新着ツール', nav_ads:'広告掲載',
+    hero_title:'最高の <span>AIツール</span> を見つけよう',
+    hero_desc:'厳選AIツールディレクトリ — ライティング、デザイン、動画、コーディング、音楽、すべてひとつに',
+    search_placeholder:'AIツールを検索...', search_btn:'🔍 検索',
+    cat_all:'すべて', cat_writing:'ライティング', cat_design:'デザイン', cat_video:'動画', cat_coding:'コーディング',
+    cat_music:'音楽', cat_productivity:'生産性', cat_marketing:'マーケ', cat_voice:'音声', cat_data:'データ分析',
+    ad_all_title:'広告枠一覧 · 8枠販売中', ad_buy_now:'今すぐ購入 →',
+    ad_slot1_name:'トップバナー', ad_slot1_desc:'最も目立つ場所<br>$9.99/月',
+    ad_slot2_name:'中段挿入', ad_slot2_desc:'ツールカード上部<br>$6.99/月',
+    ad_slot3_name:'おすすめ枠', ad_slot3_desc:'ツールリスト中間<br>$6.99/月',
+    ad_slot4_name:'ボトムバナー', ad_slot4_desc:'フッター上部<br>$6.99/月',
+    ad_top_title:'トップバナー広告 — プレミアム枠', ad_top_desc:'5K+ UV、AIユーザー · 初月$9.99',
+    ad_mid_title:'中段広告 — 期間限定', ad_mid_desc:'高精度露出、高コンバージョン · 仅$6.99/月',
+    ad_feat1_name:'プレミアムスポット', ad_feat1_desc:'3枠限定 · $5.99/月',
+    ad_feat2_name:'カテゴリ枠', ad_feat2_desc:'指定カテゴリ露出 · $4.99/月',
+    ad_feat3_name:'新着ツール枠', ad_feat3_desc:'ローンチ露出 · $3.99/月',
+    ad_feat4_name:'フラッシュ枠', ad_feat4_desc:'初月半額 · $2.99',
+    ad_bottom_title:'ボトムバナー — ベストバリュー', ad_bottom_desc:'初月無料トライアル',
+    ad_buy_btn:'今すぐ購入',
+    tools_title:'🛠️ 全ツール', total_tools:'全', tools_count:'個のツール',
+    pay_title:'支払い方法を選択', pay_desc:'希望の支払い方法をお選びください',
+    pay_paypal_desc:'メールをコピー → PayPalで送金',
+    pay_usdt_desc:'TRC20 · 即時着金 · 手数料無料',
+    pay_usdt_label:'💡 USDT (TRC20) アドレス — コピーして送金：',
+    pay_usdt_note:'送金後、スクリーンショットを admin@ainav.com に送信',
+    pay_paypal_note:'✅ PayPalメールをコピーしました！ <a href="https://paypal.com" target="_blank">paypal.com</a> を開く → 「送金」をクリック → メールを貼り付け',
+    pay_paypal_email_label:'メール：<span id="paypalEmail" style="color:#8b8bff;font-weight:600">jingm1658@gmail.com</span>',
+    pay_cancel:'キャンセル',
+    footer_tagline:'最高のAIツールを見つけよう', footer_about:'会社概要', footer_submit:'ツールを登録', footer_ads:'広告掲載', footer_privacy:'プライバシー',
+    price_free:'🆓 無料', price_paid:'💳 有料',
+    ad_placement:'広告枠', ad_inquiry:'広告枠のお問い合わせは admin@ainav.com まで'
+  }
 };
+
+const adPlacementEN = ['Top Banner - $9.99/mo','Mid-Page - $6.99/mo','Feature Cards','Bottom Banner - $6.99/mo'];
+const adPlacements = {en: adPlacementEN, zh: ['顶部横幅 - $9.99/月','中段广告位 - $6.99/月','推荐位卡片','底部横幅 - $6.99/月'], ja: ['トップバナー - $9.99/月','中段広告 - $6.99/月','おすすめ枠','ボトムバナー - $6.99/月']};
+
+let currentLang = 'en';
+
+function switchLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.getAttribute('onclick').includes(lang)));
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang === 'ja' ? 'ja' : 'en';
+
+  // Translate all [data-i18n] elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (key === 'hero_title' && lang === 'en') { el.innerHTML = i18n.en.hero_title; return; }
+    if (key === 'hero_title' && lang === 'zh') { el.innerHTML = i18n.zh.hero_title; return; }
+    if (key === 'hero_title' && lang === 'ja') { el.innerHTML = i18n.ja.hero_title; return; }
+    const text = i18n[lang]?.[key];
+    if (text) {
+      if (el.tagName === 'TITLE') { el.textContent = i18n[lang].site_name; }
+      else { el.innerHTML = text; }
+    }
+  });
+  // Translate placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    const text = i18n[lang]?.[key];
+    if (text) el.placeholder = text;
+  });
+  // Re-render tools to translate price
+  renderTools(currentCat, document.getElementById('searchInput').value);
+}
+
+function t(key) { return i18n[currentLang]?.[key] || i18n.en[key] || key; }
+
+// ===================== TOOL DATA =====================
+const toolLinks = {
+  'ChatGPT':'https://chat.openai.com', 'Claude':'https://claude.ai', 'Gemini':'https://gemini.google.com',
+  'DeepSeek':'https://chat.deepseek.com', 'Notion AI':'https://notion.so', 'Gamma':'https://gamma.app',
+  'Midjourney':'https://midjourney.com', 'Stable Diffusion':'https://stability.ai', 'DALL·E 3':'https://openai.com/dall-e-3',
+  'Leonardo AI':'https://leonardo.ai', 'ComfyUI':'https://comfyui.com', 'Ideogram':'https://ideogram.ai',
+  'Magnific AI':'https://magnific.ai', 'Sora':'https://sora.com', 'Runway Gen-3':'https://runwayml.com',
+  'Pika':'https://pika.art', 'Descript':'https://descript.com', 'HeyGen':'https://heygen.com',
+  'Cursor':'https://cursor.com', 'GitHub Copilot':'https://github.com/features/copilot',
+  'Windsurf':'https://windsurf.com', 'Claude Code':'https://claude.ai/code', 'Replit':'https://replit.com',
+  'Bolt':'https://bolt.new', 'V0 by Vercel':'https://v0.dev',
+  'Suno':'https://suno.com', 'Udio':'https://udio.com', 'AIVA':'https://aiva.ai',
+  'Figma AI':'https://figma.com', 'Canva AI':'https://canva.com', 'Relay':'https://relay.app',
+  'Krea AI':'https://krea.ai', 'Phot.ai':'https://phot.ai',
+  'Luma AI':'https://lumalabs.ai', 'Meshy':'https://meshy.ai',
+  'ElevenLabs':'https://elevenlabs.io', 'Whisper':'https://openai.com/whisper', 'Fish Audio':'https://fish.audio',
+  'NotebookLM':'https://notebooklm.google', 'Otter.ai':'https://otter.ai', 'Motion':'https://motion.dev',
+  'Tome':'https://tome.app',
+  'Perplexity':'https://perplexity.ai', 'Jasper':'https://jasper.ai', 'Typeface':'https://typeface.ai',
+  'Grammarly':'https://grammarly.com'
+};
+
+// Category mapping
+const catKeys = {
+  'Writing':'cat_writing','Design':'cat_design','Video':'cat_video','Coding':'cat_coding',
+  'Music':'cat_music','Productivity':'cat_productivity','Marketing':'cat_marketing','3D':'3D','Voice':'cat_voice','Data':'cat_data'
+};
+
 const tools = [
-  {name:'ChatGPT',cat:'写作',desc:'OpenAI旗舰对话式AI，写作、编程、头脑风暴全能',icon:'💬',color:'icon-green',price:'免费'},
-  {name:'Claude',cat:'写作',desc:'Anthropic大模型，长文写作、代码生成、数据分析',icon:'🤖',color:'icon-purple',price:'免费'},
-  {name:'Gemini',cat:'写作',desc:'Google多模态AI，支持文本/图片/视频综合处理',icon:'⭐',color:'icon-blue',price:'免费'},
-  {name:'DeepSeek',cat:'写作',desc:'国产开源大模型，推理能力极强，代码数学顶尖',icon:'🧠',color:'icon-cyan',price:'免费'},
-  {name:'Notion AI',cat:'写作',desc:'集成AI的笔记工具，自动写作、总结、翻译',icon:'📝',color:'icon-pink',price:'付费'},
-  {name:'Gamma',cat:'写作',desc:'AI生成PPT/文档/网页，一句话生成精美演示',icon:'📊',color:'icon-orange',price:'免费'},
-  {name:'Midjourney',cat:'绘画',desc:'顶级AI绘画，艺术级出图，创意无限',icon:'🎨',color:'icon-purple',price:'付费'},
-  {name:'Stable Diffusion',cat:'绘画',desc:'开源AI绘画，本地部署，完全可控',icon:'🖼️',color:'icon-blue',price:'免费'},
-  {name:'DALL·E 3',cat:'绘画',desc:'OpenAI文生图，理解力强，风格多样',icon:'✨',color:'icon-green',price:'付费'},
-  {name:'Leonardo AI',cat:'绘画',desc:'游戏资产AI生成，风格化角色场景快速出图',icon:'🎮',color:'icon-orange',price:'免费'},
-  {name:'ComfyUI',cat:'绘画',desc:'Stable Diffusion节点工作流，专业级AI绘画',icon:'🔧',color:'icon-red',price:'免费'},
-  {name:'可灵 Kling',cat:'视频',desc:'快手AI视频生成，高清长视频',icon:'🎬',color:'icon-blue',price:'免费'},
-  {name:'Sora',cat:'视频',desc:'OpenAI视频生成，真实物理世界模拟',icon:'🌐',color:'icon-green',price:'付费'},
-  {name:'Runway Gen-3',cat:'视频',desc:'专业AI视频编辑，文生视频/图生视频',icon:'🎥',color:'icon-purple',price:'付费'},
-  {name:'Pika',cat:'视频',desc:'简单易用的AI视频生成，快速出片',icon:'⚡',color:'icon-pink',price:'免费'},
-  {name:'剪映',cat:'视频',desc:'抖音AI视频剪辑，自动字幕、智能抠像',icon:'✂️',color:'icon-red',price:'免费'},
-  {name:'Cursor',cat:'编程',desc:'AI原生IDE，上下文编程，自动补全重构',icon:'⌨️',color:'icon-green',price:'免费'},
-  {name:'GitHub Copilot',cat:'编程',desc:'AI编程助手，全语言支持，代码补全',icon:'👨‍💻',color:'icon-purple',price:'付费'},
-  {name:'Windsurf',cat:'编程',desc:'新一代AI IDE，智能代码生成与理解',icon:'🌊',color:'icon-cyan',price:'免费'},
-  {name:'Claude Code',cat:'编程',desc:'终端AI编程，直接操控文件系统执行代码',icon:'💻',color:'icon-blue',price:'付费'},
-  {name:'Suno',cat:'音乐',desc:'AI音乐生成，歌词作曲一条龙',icon:'🎵',color:'icon-orange',price:'免费'},
-  {name:'Udio',cat:'音乐',desc:'高质量AI音乐生成，专业级音质',icon:'🎶',color:'icon-purple',price:'免费'},
-  {name:'AIVA',cat:'音乐',desc:'AI古典音乐作曲，影视配乐专业工具',icon:'🎻',color:'icon-pink',price:'付费'},
-  {name:'Figma AI',cat:'设计',desc:'AI增强设计工具，自动布局/生成设计稿',icon:'🎯',color:'icon-purple',price:'免费'},
-  {name:'Canva AI',cat:'设计',desc:'AI设计平台，一键生成海报/Logo/社交媒体图',icon:'🖌️',color:'icon-green',price:'免费'},
-  {name:'Relay',cat:'设计',desc:'AI UI设计工具，自然语言生成界面',icon:'📐',color:'icon-cyan',price:'免费'},
-  {name:'Luma AI',cat:'3D',desc:'AI 3D建模与渲染，视频转3D场景',icon:'🧊',color:'icon-blue',price:'付费'},
-  {name:'Meshy',cat:'3D',desc:'AI 3D资产生成，文字/图片转3D模型',icon:'🏗️',color:'icon-orange',price:'免费'},
-  {name:'ElevenLabs',cat:'语音',desc:'AI语音合成，情感语气自然逼真',icon:'🎙️',color:'icon-purple',price:'付费'},
-  {name:'Whisper',cat:'语音',desc:'OpenAI语音转文字，99%准确率',icon:'🗣️',color:'icon-green',price:'免费'},
-  {name:'Fish Audio',cat:'语音',desc:'AI语音克隆和TTS，音色模仿精准',icon:'🐟',color:'icon-cyan',price:'免费'},
-  {name:'NotebookLM',cat:'办公',desc:'Google AI笔记，自动生成播客总结',icon:'📓',color:'icon-blue',price:'免费'},
-  {name:'Otter.ai',cat:'办公',desc:'AI会议记录，自动转录+摘要',icon:'🦦',color:'icon-pink',price:'免费'},
-  {name:'Perplexity',cat:'营销',desc:'AI搜索引擎，深度研究市场洞察',icon:'🔍',color:'icon-purple',price:'免费'},
-  {name:'Jasper',cat:'营销',desc:'AI营销文案，广告/邮件/社交帖子一键生成',icon:'📢',color:'icon-orange',price:'付费'},
-  {name:'Grammarly',cat:'写作',desc:'AI英文写作助手，语法纠错润色',icon:'✏️',color:'icon-green',price:'免费'},
-  {name:'Replit',cat:'编程',desc:'AI在线IDE，浏览器全栈开发',icon:'🔄',color:'icon-orange',price:'免费'},
-  {name:'Tome',cat:'办公',desc:'AI故事叙述工具，生成交互式演示',icon:'📖',color:'icon-purple',price:'免费'},
-  {name:'Descript',cat:'视频',desc:'AI视频/音频编辑，文字编辑视频',icon:'🎙️',color:'icon-blue',price:'付费'},
-  {name:'HeyGen',cat:'视频',desc:'AI数字人视频生成，带货/培训视频',icon:'🧑‍💼',color:'icon-pink',price:'付费'},
-  {name:'Magnific AI',cat:'绘画',desc:'AI图像增强放大，画质翻倍',icon:'🔍',color:'icon-cyan',price:'付费'},
-  {name:'Typeface',cat:'营销',desc:'AI品牌内容生成，风格一致性管理',icon:'🏷️',color:'icon-green',price:'付费'},
-  {name:'Motion',cat:'办公',desc:'AI项目管理，自动排期优化',icon:'📅',color:'icon-blue',price:'付费'},
-  {name:'Phot.ai',cat:'设计',desc:'AI电商产品图生成，虚拟试穿换背景',icon:'📸',color:'icon-red',price:'付费'},
-  {name:'Ideogram',cat:'绘画',desc:'AI精准文字+图像生成，Logo设计利器',icon:'🅰️',color:'icon-yellow',price:'免费'},
-  {name:'Krea AI',cat:'设计',desc:'AI实时设计生成，多模型协作创作',icon:'🎨',color:'icon-purple',price:'免费'},
-  {name:'Bolt',cat:'编程',desc:'AI全栈Web应用生成，提示词出完整项目',icon:'⚡',color:'icon-yellow',price:'免费'},
-  {name:'V0 by Vercel',cat:'编程',desc:'AI生成React UI组件，前端快速原型',icon:'🔷',color:'icon-blue',price:'免费'},
+  {name:'ChatGPT',cat:'Writing',descEn:'OpenAI flagship AI for writing, coding, brainstorming',descZh:'OpenAI旗舰对话式AI，写作、编程、头脑风暴全能',descJa:'OpenAI最先端AI、ライティング・コーディング・ブレスト対応',icon:'💬',color:'icon-green',price:'free'},
+  {name:'Claude',cat:'Writing',descEn:'Anthropic AI for long-form writing, code, data analysis',descZh:'Anthropic大模型，长文写作、代码生成、数据分析',descJa:'Anthropicの大規模AI、長文・コード・データ分析に強み',icon:'🤖',color:'icon-purple',price:'free'},
+  {name:'Gemini',cat:'Writing',descEn:'Google multimodal AI supporting text/image/video',descZh:'Google多模态AI，支持文本/图片/视频综合处理',descJa:'GoogleマルチモーダルAI、テキスト・画像・動画処理',icon:'⭐',color:'icon-blue',price:'free'},
+  {name:'DeepSeek',cat:'Writing',descEn:'Open-source LLM with strong reasoning ability',descZh:'国产开源大模型，推理能力极强，代码数学顶尖',descJa:'オープンソースLLM、推論力に優れ、コード・数学が得意',icon:'🧠',color:'icon-cyan',price:'free'},
+  {name:'Notion AI',cat:'Writing',descEn:'AI-powered notes, writing, summarization',descZh:'集成AI的笔记工具，自动写作、总结、翻译',descJa:'AI搭載ノートツール、自動ライティング・要約・翻訳',icon:'📝',color:'icon-pink',price:'paid'},
+  {name:'Gamma',cat:'Writing',descEn:'AI presentation generator from one prompt',descZh:'AI生成PPT/文档/网页，一句话生成精美演示',descJa:'1つのプロンプトでAIがPPT生成',icon:'📊',color:'icon-orange',price:'free'},
+  {name:'Grammarly',cat:'Writing',descEn:'AI writing assistant for grammar and style',descZh:'AI英文写作助手，语法纠错润色',descJa:'AI英文ライティングアシスタント、文法・スタイル校正',icon:'✏️',color:'icon-green',price:'free'},
+  {name:'Midjourney',cat:'Design',descEn:'Top-tier AI art generation, creative and stunning',descZh:'顶级AI绘画，艺术级出图，创意无限',descJa:'最高峰のAIアート生成、クリエイティブで圧巻',icon:'🎨',color:'icon-purple',price:'paid'},
+  {name:'Stable Diffusion',cat:'Design',descEn:'Open-source AI image generation, fully controllable',descZh:'开源AI绘画，本地部署，完全可控',descJa:'オープンソースAI画像生成、ローカルで完全制御',icon:'🖼️',color:'icon-blue',price:'free'},
+  {name:'DALL·E 3',cat:'Design',descEn:'OpenAI text-to-image with strong prompt understanding',descZh:'OpenAI文生图，理解力强，风格多样',descJa:'OpenAIのテキスト→画像生成、高い理解力',icon:'✨',color:'icon-green',price:'paid'},
+  {name:'Leonardo AI',cat:'Design',descEn:'AI game asset generation, stylized characters',descZh:'游戏资产AI生成，风格化角色场景快速出图',descJa:'AIゲームアセット生成、スタイルキャラクター高速出力',icon:'🎮',color:'icon-orange',price:'free'},
+  {name:'ComfyUI',cat:'Design',descEn:'Stable Diffusion node workflow, professional grade',descZh:'Stable Diffusion节点工作流，专业级AI绘画',descJa:'Stable Diffusionノードワークフロー、プロ仕様',icon:'🔧',color:'icon-red',price:'free'},
+  {name:'Ideogram',cat:'Design',descEn:'AI image generation with accurate text rendering',descZh:'AI精准文字+图像生成，Logo设计利器',descJa:'高精度テキスト＋画像生成、ロゴデザインに最適',icon:'🅰️',color:'icon-yellow',price:'free'},
+  {name:'Magnific AI',cat:'Design',descEn:'AI image enhancement and upscaling',descZh:'AI图像增强放大，画质翻倍',descJa:'AI画像高画質化・拡大、画質が倍増',icon:'🔍',color:'icon-cyan',price:'paid'},
+  {name:'Figma AI',cat:'Productivity',descEn:'AI-enhanced design tool, auto layout',descZh:'AI增强设计工具，自动布局/生成设计稿',descJa:'AI強化デザインツール、自動レイアウト',icon:'🎯',color:'icon-purple',price:'free'},
+  {name:'Canva AI',cat:'Productivity',descEn:'AI design platform, one-click posters/logos',descZh:'AI设计平台，一键生成海报/Logo/社交媒体图',descJa:'AIデザインプラットフォーム、ワンクリックでポスター作成',icon:'🖌️',color:'icon-green',price:'free'},
+  {name:'Relay',cat:'Productivity',descEn:'AI UI design from natural language',descZh:'AI UI设计工具，自然语言生成界面',descJa:'自然言語からUIデザインを生成',icon:'📐',color:'icon-cyan',price:'free'},
+  {name:'Krea AI',cat:'Productivity',descEn:'AI real-time design generation',descZh:'AI实时设计生成，多模型协作创作',descJa:'AIリアルタイムデザイン生成',icon:'🎨',color:'icon-purple',price:'free'},
+  {name:'Phot.ai',cat:'Productivity',descEn:'AI e-commerce product photos',descZh:'AI电商产品图生成，虚拟试穿换背景',descJa:'AI EC商品画像生成、バーチャル試着',icon:'📸',color:'icon-red',price:'paid'},
+  {name:'Sora',cat:'Video',descEn:'OpenAI video generation, realistic physics',descZh:'OpenAI视频生成，真实物理世界模拟',descJa:'OpenAI動画生成、リアルな物理シミュレーション',icon:'🌐',color:'icon-green',price:'paid'},
+  {name:'Runway Gen-3',cat:'Video',descEn:'Pro AI video editing, text/video to video',descZh:'专业AI视频编辑，文生视频/图生视频',descJa:'プロ向けAI動画編集、テキスト→動画',icon:'🎥',color:'icon-purple',price:'paid'},
+  {name:'Pika',cat:'Video',descEn:'Easy AI video generation, fast output',descZh:'简单易用的AI视频生成，快速出片',descJa:'簡単操作のAI動画生成、高速出力',icon:'⚡',color:'icon-pink',price:'free'},
+  {name:'Descript',cat:'Video',descEn:'AI video/audio editor, edit video by text',descZh:'AI视频/音频编辑，文字编辑视频',descJa:'AI動画・音声編集、テキストで動画編集',icon:'🎙️',color:'icon-blue',price:'paid'},
+  {name:'HeyGen',cat:'Video',descEn:'AI avatar video generation for sales/training',descZh:'AI数字人视频生成，带货/培训视频',descJa:'AIアバター動画生成、セールス・研修用',icon:'🧑‍💼',color:'icon-pink',price:'paid'},
+  {name:'Cursor',cat:'Coding',descEn:'AI-native IDE with context-aware coding',descZh:'AI原生IDE，上下文编程，自动补全重构',descJa:'AIネイティブIDE、コンテキスト認識コーディング',icon:'⌨️',color:'icon-green',price:'free'},
+  {name:'GitHub Copilot',cat:'Coding',descEn:'AI programming assistant for all languages',descZh:'AI编程助手，全语言支持，代码补全',descJa:'全言語対応AIプログラミングアシスタント',icon:'👨‍💻',color:'icon-purple',price:'paid'},
+  {name:'Windsurf',cat:'Coding',descEn:'Next-gen AI IDE with code generation',descZh:'新一代AI IDE，智能代码生成与理解',descJa:'次世代AI IDE、インテリジェントコード生成',icon:'🌊',color:'icon-cyan',price:'free'},
+  {name:'Claude Code',cat:'Coding',descEn:'Terminal AI coding, direct file system control',descZh:'终端AI编程，直接操控文件系统执行代码',descJa:'ターミナルAIコーディング、ファイル操作可能',icon:'💻',color:'icon-blue',price:'paid'},
+  {name:'Replit',cat:'Coding',descEn:'Online IDE with AI, browser full-stack dev',descZh:'AI在线IDE，浏览器全栈开发',descJa:'ブラウザでフルスタック開発可能なAI搭載IDE',icon:'🔄',color:'icon-orange',price:'free'},
+  {name:'Bolt',cat:'Coding',descEn:'AI full-stack web app generator from prompt',descZh:'AI全栈Web应用生成，提示词出完整项目',descJa:'プロンプトからフルスタックWebアプリ生成',icon:'⚡',color:'icon-yellow',price:'free'},
+  {name:'V0 by Vercel',cat:'Coding',descEn:'AI React UI components, rapid prototyping',descZh:'AI生成React UI组件，前端快速原型',descJa:'AIでReact UIコンポーネント生成、高速プロトタイピング',icon:'🔷',color:'icon-blue',price:'free'},
+  {name:'Suno',cat:'Music',descEn:'AI music generation, lyrics and composition',descZh:'AI音乐生成，歌词作曲一条龙',descJa:'AI音楽生成、歌詞＋作曲を一気通貫',icon:'🎵',color:'icon-orange',price:'free'},
+  {name:'Udio',cat:'Music',descEn:'High-quality AI music generation',descZh:'高质量AI音乐生成，专业级音质',descJa:'高品質AI音楽生成、プロ級音質',icon:'🎶',color:'icon-purple',price:'free'},
+  {name:'AIVA',cat:'Music',descEn:'AI classical music composition, film scoring',descZh:'AI古典音乐作曲，影视配乐专业工具',descJa:'AIクラシック作曲、映像スコアリング専門ツール',icon:'🎻',color:'icon-pink',price:'paid'},
+  {name:'Luma AI',cat:'3D',descEn:'AI 3D modeling, video to 3D scenes',descZh:'AI 3D建模与渲染，视频转3D场景',descJa:'AI 3Dモデリング、動画→3Dシーン変換',icon:'🧊',color:'icon-blue',price:'paid'},
+  {name:'Meshy',cat:'3D',descEn:'AI 3D asset generation from text/image',descZh:'AI 3D资产生成，文字/图片转3D模型',descJa:'テキスト・画像からAI 3Dアセット生成',icon:'🏗️',color:'icon-orange',price:'free'},
+  {name:'ElevenLabs',cat:'Voice',descEn:'AI voice synthesis, natural emotion and tone',descZh:'AI语音合成，情感语气自然逼真',descJa:'AI音声合成、自然な感情表現',icon:'🎙️',color:'icon-purple',price:'paid'},
+  {name:'Whisper',cat:'Voice',descEn:'OpenAI speech-to-text, 99% accuracy',descZh:'OpenAI语音转文字，99%准确率',descJa:'OpenAI音声認識、99%精度',icon:'🗣️',color:'icon-green',price:'free'},
+  {name:'Fish Audio',cat:'Voice',descEn:'AI voice cloning and TTS',descZh:'AI语音克隆和TTS，音色模仿精准',descJa:'AI音声クローン・TTS、高精度声色模写',icon:'🐟',color:'icon-cyan',price:'free'},
+  {name:'NotebookLM',cat:'Productivity',descEn:'Google AI notes, podcast summary generation',descZh:'Google AI笔记，自动生成播客总结',descJa:'Google AIノート、自動ポッドキャスト要約生成',icon:'📓',color:'icon-blue',price:'free'},
+  {name:'Otter.ai',cat:'Productivity',descEn:'AI meeting notes, auto transcription + summary',descZh:'AI会议记录，自动转录+摘要',descJa:'AI議事録、自動文字起こし＋要約',icon:'🦦',color:'icon-pink',price:'free'},
+  {name:'Tome',cat:'Productivity',descEn:'AI storytelling tool, interactive presentations',descZh:'AI故事叙述工具，生成交互式演示',descJa:'AIストーリーテリングツール、インタラクティブプレゼン',icon:'📖',color:'icon-purple',price:'free'},
+  {name:'Motion',cat:'Productivity',descEn:'AI project management, auto scheduling',descZh:'AI项目管理，自动排期优化',descJa:'AIプロジェクト管理、自動スケジュール最適化',icon:'📅',color:'icon-blue',price:'paid'},
+  {name:'Perplexity',cat:'Marketing',descEn:'AI search engine for deep market research',descZh:'AI搜索引擎，深度研究市场洞察',descJa:'AI検索エンジン、深い市場洞察',icon:'🔍',color:'icon-purple',price:'free'},
+  {name:'Jasper',cat:'Marketing',descEn:'AI marketing copy for ads/email/social',descZh:'AI营销文案，广告/邮件/社交帖子一键生成',descJa:'AIマーケティングコピー、広告・メール・SNS生成',icon:'📢',color:'icon-orange',price:'paid'},
+  {name:'Typeface',cat:'Marketing',descEn:'AI brand content generation, consistent style',descZh:'AI品牌内容生成，风格一致性管理',descJa:'AIブランドコンテンツ生成、一貫スタイル管理',icon:'🏷️',color:'icon-green',price:'paid'}
 ];
 
+// ===================== RENDER ENGINE =====================
 const grid = document.getElementById('toolGrid');
 const countEl = document.getElementById('toolCount');
 
+function getDesc(tool) {
+  if (currentLang === 'zh') return tool.descZh;
+  if (currentLang === 'ja') return tool.descJa;
+  return tool.descEn;
+}
+
 function renderTools(filterCat='all', search='') {
   const filtered = tools.filter(t => {
-    if(filterCat !== 'all' && t.cat !== filterCat) return false;
-    if(search && !t.name.toLowerCase().includes(search.toLowerCase()) && !t.desc.includes(search)) return false;
+    if (filterCat !== 'all' && t.cat !== filterCat) return false;
+    if (search) {
+      const q = search.toLowerCase();
+      const nameMatch = t.name.toLowerCase().includes(q);
+      const descMatch = t.descEn.toLowerCase().includes(q) || t.descZh.includes(q) || t.descJa.includes(q);
+      return nameMatch || descMatch;
+    }
     return true;
   });
-  grid.innerHTML = filtered.map(t => `
-    <div class="tool-card" data-cat="${t.cat}" data-url="${toolLinks[t.name] || '#'}">
-      <span class="tag">${t.cat}</span>
+  grid.innerHTML = filtered.map(t => {
+    const url = toolLinks[t.name] || '#';
+    const priceLabel = t.price === 'free' ? t('price_free') : t('price_paid');
+    const catLabel = t(catKeys[t.cat] || t.cat);
+    return `<div class="tool-card" data-url="${url}">
+      <span class="tag">${catLabel}</span>
       <div class="icon ${t.color}">${t.icon}</div>
       <h3>${t.name}</h3>
-      <p>${t.desc}</p>
+      <p>${getDesc(t)}</p>
       <div class="meta">
-        <span class="price ${t.price==='免费'?'free':'paid'}">${t.price==='免费'?'🆓 免费':'💳 '+t.price}</span>
-        <span>${t.cat}</span>
+        <span class="price ${t.price}">${priceLabel}</span>
+        <span>${catLabel}</span>
       </div>
-    </div>
-  `).join('');
-  // Add click event listeners
+    </div>`;
+  }).join('');
+  // Add click
   document.querySelectorAll('.tool-card').forEach(card => {
     card.addEventListener('click', function() {
       const url = this.getAttribute('data-url');
       if (url && url !== '#') window.open(url, '_blank');
     });
   });
-  countEl.textContent = `共 ${filtered.length} 个工具`;
+  countEl.innerHTML = `${t('total_tools')} ${filtered.length} ${t('tools_count')}`;
 }
 
 function selectCategory(el, cat) {
@@ -496,8 +634,8 @@ function showPayment(adName, price) {
   currentAd = adName;
   currentPrice = price;
   document.getElementById('modalTitle').textContent = adName;
-  document.getElementById('modalDesc').textContent = '选择支付方式完成购买';
-  document.getElementById('modalPrice').innerHTML = (price.split(' - ')[1] || price) + ' <small>CNY</small>';
+  document.getElementById('modalDesc').textContent = t('pay_desc');
+  document.getElementById('modalPrice').textContent = price;
   document.getElementById('payAddress').style.display = 'none';
   document.getElementById('paypalNote').style.display = 'none';
   document.getElementById('paymentModal').classList.add('active');
@@ -511,20 +649,14 @@ function payPaypal() {
   document.getElementById('payAddress').style.display = 'none';
   document.getElementById('paypalNote').style.display = 'block';
   document.getElementById('paypalEmail').textContent = PAYPAL_EMAIL;
-  navigator.clipboard.writeText(PAYPAL_EMAIL).then(() => {
-    document.getElementById('paypalEmail').style.color = '#ffb86c';
-    setTimeout(() => document.getElementById('paypalEmail').style.color = '#8b8bff', 2000);
-  });
+  navigator.clipboard.writeText(PAYPAL_EMAIL).catch(() => {});
 }
 
 function payUSDT() {
   document.getElementById('paypalNote').style.display = 'none';
   document.getElementById('payAddress').style.display = 'block';
   document.getElementById('usdtAddress').textContent = USDT_ADDRESS;
-  navigator.clipboard.writeText(USDT_ADDRESS).then(() => {
-    document.getElementById('usdtAddress').style.color = '#ffb86c';
-    setTimeout(() => document.getElementById('usdtAddress').style.color = '#4ecdc4', 2000);
-  });
+  navigator.clipboard.writeText(USDT_ADDRESS).catch(() => {});
 }
 
 document.getElementById('paymentModal').addEventListener('click', function(e) {
@@ -533,6 +665,19 @@ document.getElementById('paymentModal').addEventListener('click', function(e) {
 
 // ===================== INIT =====================
 renderTools();
+
+// Load saved language from localStorage
+(function() {
+  const saved = localStorage.getItem('ai_nav_lang');
+  if (saved && i18n[saved]) switchLang(saved);
+})();
+
+// Save language preference
+const origSwitch = window.switchLang;
+window.switchLang = function(lang) {
+  localStorage.setItem('ai_nav_lang', lang);
+  origSwitch(lang);
+};
 </script>
 </body>
 </html>
