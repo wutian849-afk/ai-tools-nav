@@ -301,7 +301,7 @@ a:hover{color:#b0b0ff}
 <div class="pay-icon icon-blue" style="background:rgba(0,48,135,.15)">💳</div>
 <div class="pay-info">
 <h3>PayPal 支付</h3>
-<p>支持信用卡/借记卡/PayPal余额 · 全球通用</p>
+<p>点击复制邮箱 → 打开PayPal打款</p>
 </div>
 </div>
 
@@ -320,8 +320,8 @@ a:hover{color:#b0b0ff}
 </div>
 
 <div class="pay-note" id="paypalNote" style="display:none;background:#0d0d16;border-radius:8px;padding:16px">
-<p style="color:#888;font-size:12px">💳 点击后跳转到 PayPal 完成支付</p>
-<p style="color:#555;font-size:11px;margin-top:4px">PayPal邮箱：<span id="paypalEmail" style="color:#8b8bff">请设置你的PayPal邮箱</span></p>
+<p style="color:#888;font-size:12px">✅ PayPal邮箱已复制！打开 <a href="https://paypal.com" target="_blank" style="color:#8b8bff">paypal.com</a> → 点击"发送" → 粘贴邮箱打款</p>
+<p style="color:#555;font-size:11px;margin-top:4px">收款邮箱：<span id="paypalEmail" style="color:#8b8bff;font-weight:600">jingm1658@gmail.com</span>（点击即复制）</p>
 </div>
 
 <button class="modal-close" onclick="closeModal()">取消</button>
@@ -454,7 +454,10 @@ function payPaypal() {
   document.getElementById('payAddress').style.display = 'none';
   document.getElementById('paypalNote').style.display = 'block';
   document.getElementById('paypalEmail').textContent = PAYPAL_EMAIL;
-  window.open('https://www.paypal.com/paypalme/' + PAYPAL_EMAIL.replace('@',''), '_blank');
+  navigator.clipboard.writeText(PAYPAL_EMAIL).then(() => {
+    document.getElementById('paypalEmail').style.color = '#ffb86c';
+    setTimeout(() => document.getElementById('paypalEmail').style.color = '#8b8bff', 2000);
+  });
 }
 
 function payUSDT() {
