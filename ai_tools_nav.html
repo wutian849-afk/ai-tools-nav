@@ -340,6 +340,56 @@ a:hover{color:#b0b0ff}
 </div>
 
 <script>
+const toolLinks = {
+  'ChatGPT':'https://chat.openai.com',
+  'Claude':'https://claude.ai',
+  'Gemini':'https://gemini.google.com',
+  'DeepSeek':'https://chat.deepseek.com',
+  'Notion AI':'https://notion.so',
+  'Gamma':'https://gamma.app',
+  'Midjourney':'https://midjourney.com',
+  'Stable Diffusion':'https://stability.ai',
+  'DALL·E 3':'https://openai.com/dall-e-3',
+  'Leonardo AI':'https://leonardo.ai',
+  'ComfyUI':'https://comfyui.com',
+  'Ideogram':'https://ideogram.ai',
+  'Magnific AI':'https://magnific.ai',
+  '可灵 Kling':'https://kling.kuaishou.com',
+  'Sora':'https://sora.com',
+  'Runway Gen-3':'https://runwayml.com',
+  'Pika':'https://pika.art',
+  '剪映':'https://jyy.capcut.cn',
+  'Descript':'https://descript.com',
+  'HeyGen':'https://heygen.com',
+  'Cursor':'https://cursor.com',
+  'GitHub Copilot':'https://github.com/features/copilot',
+  'Windsurf':'https://windsurf.com',
+  'Claude Code':'https://claude.ai/code',
+  'Replit':'https://replit.com',
+  'Bolt':'https://bolt.new',
+  'V0':'https://v0.dev',
+  'Suno':'https://suno.com',
+  'Udio':'https://udio.com',
+  'AIVA':'https://aiva.ai',
+  'Figma AI':'https://figma.com',
+  'Canva AI':'https://canva.com',
+  'Relay':'https://relay.app',
+  'Krea AI':'https://krea.ai',
+  'Phot.ai':'https://phot.ai',
+  'Luma AI':'https://lumalabs.ai',
+  'Meshy':'https://meshy.ai',
+  'ElevenLabs':'https://elevenlabs.io',
+  'Whisper':'https://openai.com/whisper',
+  'Fish Audio':'https://fish.audio',
+  'NotebookLM':'https://notebooklm.google',
+  'Otter.ai':'https://otter.ai',
+  'Motion':'https://motion.dev',
+  'Tome':'https://tome.app',
+  'Perplexity':'https://perplexity.ai',
+  'Jasper':'https://jasper.ai',
+  'Typeface':'https://typeface.ai',
+  'Grammarly':'https://grammarly.com',
+};
 const tools = [
   {name:'ChatGPT',cat:'写作',desc:'OpenAI旗舰对话式AI，写作、编程、头脑风暴全能',icon:'💬',color:'icon-green',price:'免费'},
   {name:'Claude',cat:'写作',desc:'Anthropic大模型，长文写作、代码生成、数据分析',icon:'🤖',color:'icon-purple',price:'免费'},
@@ -401,7 +451,7 @@ function renderTools(filterCat='all', search='') {
     return true;
   });
   grid.innerHTML = filtered.map(t => `
-    <div class="tool-card" data-cat="${t.cat}">
+    <div class="tool-card" data-cat="${t.cat}" onclick="window.open('${toolLinks[t.name] || '#'}','_blank')">
       <span class="tag">${t.cat}</span>
       <div class="icon ${t.color}">${t.icon}</div>
       <h3>${t.name}</h3>
