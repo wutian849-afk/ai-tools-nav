@@ -451,7 +451,7 @@ function renderTools(filterCat='all', search='') {
     return true;
   });
   grid.innerHTML = filtered.map(t => `
-    <div class="tool-card" data-cat="${t.cat}" onclick="window.open('${toolLinks[t.name] || '#'}','_blank')">
+    <div class="tool-card" data-cat="${t.cat}" data-url="${toolLinks[t.name] || '#'}">
       <span class="tag">${t.cat}</span>
       <div class="icon ${t.color}">${t.icon}</div>
       <h3>${t.name}</h3>
@@ -462,6 +462,13 @@ function renderTools(filterCat='all', search='') {
       </div>
     </div>
   `).join('');
+  // Add click event listeners
+  document.querySelectorAll('.tool-card').forEach(card => {
+    card.addEventListener('click', function() {
+      const url = this.getAttribute('data-url');
+      if (url && url !== '#') window.open(url, '_blank');
+    });
+  });
   countEl.textContent = `共 ${filtered.length} 个工具`;
 }
 
