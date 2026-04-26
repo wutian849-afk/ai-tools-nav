@@ -506,8 +506,12 @@ const toolLinks = {
   'NotebookLM':'https://notebooklm.google', 'Otter.ai':'https://otter.ai', 'Motion':'https://motion.dev',
   'Tome':'https://tome.app',
   'Perplexity':'https://perplexity.ai', 'Jasper':'https://jasper.ai', 'Typeface':'https://typeface.ai',
-  'Grammarly':'https://grammarly.com'
+  'Grammarly':'https://grammarly.com',
+  'Kling':'https://kling.kuaishou.com',
+  'CapCut':'https://capcut.com'
 };
+
+// Expose globally
 
 // Category mapping
 const catKeys = {
@@ -561,10 +565,12 @@ const tools = [
   {name:'Motion',cat:'Productivity',descEn:'AI project management, auto scheduling',descZh:'AI项目管理，自动排期优化',descJa:'AIプロジェクト管理、自動スケジュール最適化',icon:'📅',color:'icon-blue',price:'paid'},
   {name:'Perplexity',cat:'Marketing',descEn:'AI search engine for deep market research',descZh:'AI搜索引擎，深度研究市场洞察',descJa:'AI検索エンジン、深い市場洞察',icon:'🔍',color:'icon-purple',price:'free'},
   {name:'Jasper',cat:'Marketing',descEn:'AI marketing copy for ads/email/social',descZh:'AI营销文案，广告/邮件/社交帖子一键生成',descJa:'AIマーケティングコピー、広告・メール・SNS生成',icon:'📢',color:'icon-orange',price:'paid'},
-  {name:'Typeface',cat:'Marketing',descEn:'AI brand content generation, consistent style',descZh:'AI品牌内容生成，风格一致性管理',descJa:'AIブランドコンテンツ生成、一貫スタイル管理',icon:'🏷️',color:'icon-green',price:'paid'}
+  {name:'Typeface',cat:'Marketing',descEn:'AI brand content generation, consistent style',descZh:'AI品牌内容生成，风格一致性管理',descJa:'AIブランドコンテンツ生成、一貫スタイル管理',icon:'🏷️',color:'icon-green',price:'paid'},
+  {name:'Kling',cat:'Video',descEn:'AI video generation by Kuaishou, high-quality long videos',descZh:'快手AI视频生成，高清长视频',descJa:'Kuaishou AI動画生成、高画質長尺動画',icon:'🎬',color:'icon-blue',price:'free'},
+  {name:'CapCut',cat:'Video',descEn:'AI video editor with auto captions, smart cutout',descZh:'AI视频剪辑，自动字幕、智能抠像',descJa:'AI動画編集、自動字幕、スマート切り抜き',icon:'✂️',color:'icon-red',price:'free'}
 ];
 
-// ===================== RENDER ENGINE =====================
+// Expose globals for debugging
 const grid = document.getElementById('toolGrid');
 const countEl = document.getElementById('toolCount');
 
@@ -585,17 +591,18 @@ function renderTools(filterCat='all', search='') {
     }
     return true;
   });
-  grid.innerHTML = filtered.map(t => {
-    const url = toolLinks[t.name] || '#';
-    const priceLabel = t.price === 'free' ? t('price_free') : t('price_paid');
-    const catLabel = t(catKeys[t.cat] || t.cat);
+  grid.innerHTML = filtered.map(tool => {
+    const url = toolLinks[tool.name] || '#';
+    const priceLabel = tool.price === 'free' ? (i18n[currentLang]?.price_free || i18n.en.price_free) : (i18n[currentLang]?.price_paid || i18n.en.price_paid);
+    const catKey = catKeys[tool.cat] || tool.cat;
+    const catLabel = i18n[currentLang]?.[catKey] || i18n.en[catKey] || tool.cat;
     return `<div class="tool-card" data-url="${url}">
       <span class="tag">${catLabel}</span>
-      <div class="icon ${t.color}">${t.icon}</div>
-      <h3>${t.name}</h3>
-      <p>${getDesc(t)}</p>
+      <div class="icon ${tool.color}">${tool.icon}</div>
+      <h3>${tool.name}</h3>
+      <p>${getDesc(tool)}</p>
       <div class="meta">
-        <span class="price ${t.price}">${priceLabel}</span>
+        <span class="price ${tool.price}">${priceLabel}</span>
         <span>${catLabel}</span>
       </div>
     </div>`;
